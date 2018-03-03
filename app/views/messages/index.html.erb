@@ -1,0 +1,12 @@
+<h1>View your messages</h1>
+<p>Currently logged in as user: <%= current_user.fullname %></p>
+
+<table>
+<% @messages.each do |message| %>
+  <tr>
+    <td><%= message.content %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Back to home', root_url %>
