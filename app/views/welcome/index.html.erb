@@ -4,7 +4,7 @@
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.fullname %></strong>.
   <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-  <%= link_to "Show users", users_path %>
+  <%= link_to "View users", users_path %>
 <% else %>
   <%= link_to "Sign up", new_user_registration_path %>
   <%= link_to "Login", new_user_session_path %>
