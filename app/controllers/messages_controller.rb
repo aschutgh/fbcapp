@@ -1,5 +1,9 @@
 class MessagesController < ApplicationController
 
+  def new
+    @user = User.find(current_user.id)
+  end
+
   def index
     @user = User.find(current_user.id)
     @messages = @user.messages.all
@@ -8,7 +12,7 @@ class MessagesController < ApplicationController
   def create
     @user = User.find(current_user.id)
     @message = @user.messages.create(message_params)
-    redirect_to user_path(@user)
+    redirect_to root_url
   end
 
   private

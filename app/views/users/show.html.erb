@@ -1,17 +1,7 @@
 <h1>Page for the current user</h1>
 <p>
-  User currently logged in: <%= @user.fullname %>
+  User currently logged in: <%= current_user.fullname %>
 </p>
 
-<h1>Add message</h1>
-<%= form_with(model: [ @user, @user.messages.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :content %><br>
-    <%= form.text_field :content %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
 
 <%= link_to 'Home', root_url %>

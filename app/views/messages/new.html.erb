@@ -1,0 +1,14 @@
+<h1>Post new message</h1>
+<p>Currently logged in as <%= current_user.fullname %></p>
+
+<%= form_with(model: [ @user, @user.messages.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :content %><br>
+    <%= form.text_field :content %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Home', root_url %>
