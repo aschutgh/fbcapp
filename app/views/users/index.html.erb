@@ -5,6 +5,11 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= user.fullname %></td>
+      <% if current_user.friends.include?(user) %>
+        <td>This is a friend</td>
+      <% else %>
+        <td>This is not a friend</td>
+      <% end %>
   </tr>
 <% end %>
 </table>
