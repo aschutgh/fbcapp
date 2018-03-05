@@ -9,4 +9,14 @@
 <% end %>
 </table>
 
+<table>
+<% @user.friends.each do |friend| %>
+  <% friend.messages.each do |message| %>
+    <tr>
+      <td><%= message.content %></td><td>Written by your friend <%= message.user.fullname %></td>
+    </tr>
+  <% end %>
+<% end %>
+</table>
+
 <%= link_to 'Back to home', root_url %>
