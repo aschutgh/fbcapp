@@ -5,6 +5,7 @@
   Logged in as <strong><%= current_user.fullname %></strong>.
   <%= link_to "Logout", destroy_user_session_path, method: :delete %>
   <%= link_to "View users", users_path %>
+  <%= link_to "View friendships", user_friendships_path(current_user) %>
   <%= link_to "Personal page", user_path(current_user) %>
   <%= link_to "View your messages", user_messages_path(current_user) %>
   <%= link_to "Post message", new_user_message_path(current_user) %>

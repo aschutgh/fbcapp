@@ -1,0 +1,33 @@
+<h1>Friendships index</h1>
+<p>Currently logged in as user: <%= current_user.fullname %></p>
+
+<table>
+<% @users.each do |user| %>
+  <% if user.fullname != current_user.fullname %>
+    <tr>
+      <td><%= user.fullname %></td>
+        <% if current_user.friends.include?(user) %>
+          <td>This is a friend</td>
+            
+          <td>
+            <%= form_for([current_user, current_user.friendships.find_by(friend_id: user.id)], local: true, html: { method: :delete }) do |f| %>
+              <%= f.submit "Defriend" %>
+            <% end %>
+          </td>
+        <% else %>
+          <td>This is not a friend</td>
+  
+          <td>
+            <%= form_for([current_user, current_user.friendships.build], local: true) do |f| %>
+              <div><%= hidden_field_tag :friend_id, user.id %></div>
+              <%= f.submit "Befriend" %>
+            <% end %>
+          </td>
+  
+        <% end %>
+    </tr>
+  <% end %>
+<% end %>
+</table>
+
+<%= link_to 'Back to home', root_url %>
