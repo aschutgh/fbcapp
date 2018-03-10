@@ -8,20 +8,13 @@
       <td><%= user.fullname %></td>
         <% if current_user.friends.include?(user) %>
           <td>This is a friend</td>
-            
           <td>
-            <%= form_for([current_user, current_user.friendships.find_by(friend_id: user.id)], local: true, html: { method: :delete }) do |f| %>
-              <%= f.submit "Defriend" %>
-            <% end %>
+            <%= button_to("Defriend", [current_user, current_user.friendships.find_by(friend_id: user.id)], method: :delete ) %>
           </td>
         <% else %>
           <td>This is not a friend</td>
-  
           <td>
-            <%= form_for([current_user, current_user.friendships.build], local: true) do |f| %>
-              <div><%= hidden_field_tag :friend_id, user.id %></div>
-              <%= f.submit "Befriend" %>
-            <% end %>
+            <%= button_to("Befriend", [current_user, current_user.friendships.build], params: { friend_id: user.id }, method: :post ) %>
           </td>
   
         <% end %>
