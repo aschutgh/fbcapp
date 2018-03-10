@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
 
   def index
     @user = User.find(current_user.id)
-    @messages = @user.messages.all
+    @messages = Message.where("user_id IN (?) OR user_id = ?", @user.friends.ids, @user.id).paginate(:page => params[:page], :per_page => 2)
   end
 
   def create
