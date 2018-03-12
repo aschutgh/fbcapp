@@ -9,3 +9,13 @@
 #
 #two: {}
 # column: value
+
+tester:
+  email: test1@example.com
+  fullname: testuser1
+  encrypted_password: <%= User.new.send(:password_digest, 'testabc123') %>
+
+#testerpts:
+#  email: test2@example.com
+#  fullname: testuser2
+#  encrypted_password: <%= User.new.send(:password_digest, 'pts01') %>
