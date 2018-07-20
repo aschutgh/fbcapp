@@ -1,5 +1,5 @@
 # Opdracht
-Opdracht omtrent prive aangelegenheid
+Opdracht inzake prive aangelegenheid
 
 # README
 
